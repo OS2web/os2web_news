@@ -1,0 +1,22 @@
+uuid: 7f84cfa5-b290-46bc-b489-b29ac33f3746
+langcode: da
+status: true
+dependencies:
+  config:
+    - node.type.os2web_news
+id: node.os2web_news.promote
+field_name: promote
+entity_type: node
+bundle: os2web_news
+label: 'Forfremmet til forside'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Tilsluttet
+  off_label: Afbrudt
+field_type: boolean

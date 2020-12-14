@@ -1,0 +1,19 @@
+uuid: b1690c73-26dd-4ecd-a493-73b7c7e34291
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_os2web_news_accord_title
+    - node.type.os2web_news
+id: node.os2web_news.field_os2web_news_accord_title
+field_name: field_os2web_news_accord_title
+entity_type: node
+bundle: os2web_news
+label: 'Accordion title'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

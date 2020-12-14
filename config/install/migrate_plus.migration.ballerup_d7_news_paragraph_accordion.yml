@@ -1,0 +1,27 @@
+uuid: 705fc8c7-73e7-4c41-ad24-fbefee8cfd2d
+langcode: en
+status: true
+dependencies: {  }
+id: ballerup_d7_news_paragraph_accordion
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+migration_group: ballerup_d7
+label: 'Ballerup D7 News Paragraph Accordion'
+source:
+  plugin: d7_node
+  node_type: news
+process:
+  field_os2web_accordion_heading: field_accordion_title
+  field_os2web_accordion_reference:
+    plugin: callback
+    callable:
+      - Drupal\ballerup_d7_migration\Utility\MigrationHelper
+      - createAccordionItemParagraph
+    source: field_accordion
+destination:
+  plugin: 'entity_reference_revisions:paragraph'
+  default_bundle: os2web_accordion
+migration_dependencies: null

@@ -1,0 +1,25 @@
+uuid: 053ff661-dafd-482e-9185-afcbac95f7e2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_os2web_news_video
+    - node.type.os2web_news
+  module:
+    - video_embed_field
+id: node.os2web_news.field_os2web_news_video
+field_name: field_os2web_news_video
+entity_type: node
+bundle: os2web_news
+label: 'Newsarticle Video'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_providers:
+    vimeo: vimeo
+    youtube: youtube
+    youtube_playlist: '0'
+field_type: video_embed_field

@@ -1,0 +1,50 @@
+uuid: e304d67a-a81d-41c0-a655-1ccbf768a666
+langcode: da
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.os2web_news.body
+    - field.field.node.os2web_news.field_migration_old_url
+    - field.field.node.os2web_news.field_os2web_news_accordion
+    - field.field.node.os2web_news.field_os2web_news_article_author
+    - field.field.node.os2web_news.field_os2web_news_article_date
+    - field.field.node.os2web_news.field_os2web_news_deck
+    - field.field.node.os2web_news.field_os2web_news_image
+    - field.field.node.os2web_news.field_os2web_news_image_video
+    - field.field.node.os2web_news.field_os2web_news_section
+    - field.field.node.os2web_news.field_os2web_news_video
+    - node.type.os2web_news
+  module:
+    - text
+    - user
+id: node.os2web_news.teaser
+targetEntityType: node
+bundle: os2web_news
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_migration_old_url: true
+  field_os2web_news_accordion: true
+  field_os2web_news_article_author: true
+  field_os2web_news_article_date: true
+  field_os2web_news_deck: true
+  field_os2web_news_image: true
+  field_os2web_news_image_video: true
+  field_os2web_news_section: true
+  field_os2web_news_video: true
+  langcode: true
+  search_api_excerpt: true
