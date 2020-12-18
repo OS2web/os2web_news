@@ -1,0 +1,28 @@
+
+<?php
+
+/**
+ * @file
+ * Install, uninstall and update hooks for page builder module.
+ */
+
+use Drupal\field\Entity\FieldStorageConfig;
+use Drupal\taxonomy\Entity\Vocabulary;
+use Symfony\Component\Yaml\Yaml;
+use Drupal\field\Entity\FieldConfig;
+
+
+function os2web_news_read_in_new_config($config_name) {
+  $path = drupal_get_path('module', 'os2web_news');
+  /** @var \Drupal\Core\Config\StorageInterface $active_storage */
+  $active_storage = \Drupal::service('config.storage');
+  $active_storage->write($config_name, Yaml::parse(file_get_contents($path . '/config/install/' . $config_name . '.yml')));
+}
+
+/**
+ * Update os2web_news content type.
+ */
+function os2web_news_update_8001() {
+  os2web_news_read_in_new_config('node.type.os2web_news');
+  os2web_news_read_in_new_config('core.entity_view_display.node.os2web_news.default');
+}

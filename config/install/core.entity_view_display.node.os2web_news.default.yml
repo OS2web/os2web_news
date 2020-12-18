@@ -62,7 +62,7 @@ content:
     weight: 104
     label: above
     settings:
-      date_format: medium
+      date_format: os2core_date_medium
       custom_date_format: ''
       timezone: ''
     third_party_settings: {  }
