@@ -26,3 +26,16 @@ function os2web_news_update_8001() {
   os2web_news_read_in_new_config('node.type.os2web_news');
   os2web_news_read_in_new_config('core.entity_view_display.node.os2web_news.default');
 }
+
+/**
+ * Update os2web_news content type.
+ */
+function os2web_news_update_8002() {
+    $path = drupal_get_path('module', 'os2web_news');
+    // Create field instance.
+    $field__page_heading_yml = Yaml::parse(file_get_contents($path . '/config/optional/field.field.node.os2web_news.field_os2web_page_heading.yml'));
+    if (!FieldConfig::loadByName($field__page_heading_yml['entity_type'], $field_media_image_yml['bundle'], $field__page_heading_yml['field_name'])) {
+      FieldConfig::create($field_media_image_yml)->save();
+    }
+
+}
