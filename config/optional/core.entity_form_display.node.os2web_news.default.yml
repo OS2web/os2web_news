@@ -3,7 +3,6 @@ status: true
 dependencies:
   config:
     - field.field.node.os2web_news.body
-    - field.field.node.os2web_news.field_migration_old_url
     - field.field.node.os2web_news.field_os2web_news_accord_title
     - field.field.node.os2web_news.field_os2web_news_accordion
     - field.field.node.os2web_news.field_os2web_news_article_author
@@ -32,7 +31,6 @@ third_party_settings:
         - field_os2web_news_article_author
         - field_os2web_news_article_date
         - field_os2web_news_deck
-        - field_migration_old_url
       parent_name: group_editform
       weight: 9
       format_type: tab
@@ -109,14 +107,6 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_migration_old_url:
-    weight: 19
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_os2web_news_accordion:
     type: entity_reference_paragraphs
     weight: 9

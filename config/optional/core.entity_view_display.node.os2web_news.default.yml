@@ -3,7 +3,6 @@ status: true
 dependencies:
   config:
     - field.field.node.os2web_news.body
-    - field.field.node.os2web_news.field_migration_old_url
     - field.field.node.os2web_news.field_os2web_news_accord_title
     - field.field.node.os2web_news.field_os2web_news_accordion
     - field.field.node.os2web_news.field_os2web_news_article_author
