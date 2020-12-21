@@ -1,0 +1,71 @@
+langcode: da
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.os2web_news.body
+    - field.field.node.os2web_news.field_migration_old_url
+    - field.field.node.os2web_news.field_os2web_news_accord_title
+    - field.field.node.os2web_news.field_os2web_news_accordion
+    - field.field.node.os2web_news.field_os2web_news_article_author
+    - field.field.node.os2web_news.field_os2web_news_article_date
+    - field.field.node.os2web_news.field_os2web_news_deck
+    - field.field.node.os2web_news.field_os2web_news_image
+    - field.field.node.os2web_news.field_os2web_news_image_video
+    - field.field.node.os2web_news.field_os2web_news_section
+    - field.field.node.os2web_news.field_os2web_news_video
+    - node.type.os2web_news
+  module:
+    - svg_image
+    - user
+id: node.os2web_news.teaser
+targetEntityType: node
+bundle: os2web_news
+mode: teaser
+content:
+  field_os2web_news_article_date:
+    type: timestamp
+    weight: 3
+    region: content
+    label: hidden
+    settings:
+      date_format: medium
+      custom_date_format: ''
+      timezone: ''
+    third_party_settings: {  }
+  field_os2web_news_deck:
+    type: basic_string
+    weight: 2
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  field_os2web_news_image:
+    type: image
+    weight: 1
+    region: content
+    label: hidden
+    settings:
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+  links:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  body: true
+  field_migration_old_url: true
+  field_os2web_news_accord_title: true
+  field_os2web_news_accordion: true
+  field_os2web_news_article_author: true
+  field_os2web_news_image_video: true
+  field_os2web_news_section: true
+  field_os2web_news_video: true
+  langcode: true
+  search_api_excerpt: true
