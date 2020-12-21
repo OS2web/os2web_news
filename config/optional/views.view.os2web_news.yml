@@ -3,6 +3,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.list
+    - core.entity_view_mode.node.teaser
     - node.type.os2web_news
   module:
     - node
@@ -62,7 +63,7 @@ display:
         type: 'entity:node'
         options:
           relationship: none
-          view_mode: list
+          view_mode: teaser
       fields:
         title:
           id: title
@@ -213,7 +214,21 @@ display:
           quantity: 9
       defaults:
         pager: false
+        style: false
+        row: false
       display_description: ''
+      style:
+        type: default
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: true
+          uses_fields: false
+      row:
+        type: 'entity:node'
+        options:
+          relationship: none
+          view_mode: list
     cache_metadata:
       max-age: -1
       contexts:
