@@ -10,16 +10,7 @@ function os2web_news_preprocess_paragraph__os2web_news_block(&$variables) {
     return;
   }
 
-  $variables['content'] = views_embed_view('os2web_news', 'os2web_news_embed_limited');
-
-  /** @var \Drupal\paragraphs\Entity\Paragraph $paragraph */
-  $paragraph = $variables['paragraph'];
-
-  $details_link_field = $paragraph->field_os2web_news_details_link->getValue();
-  if (!empty($details_link_field)) {
-    $details_link = reset($details_link_field);
-    $variables['#details_link'] = $details_link;
-  }
+  $variables['content'][] = views_embed_view('os2web_news', 'os2web_news_embed_limited');
 }
 
 /**
