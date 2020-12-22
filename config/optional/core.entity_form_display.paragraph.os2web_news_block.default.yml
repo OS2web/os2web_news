@@ -2,6 +2,7 @@ langcode: da
 status: true
 dependencies:
   config:
+    - field.field.paragraph.os2web_news_block.field_os2web_news_block_header
     - field.field.paragraph.os2web_news_block.field_os2web_news_details_link
     - paragraphs.paragraphs_type.os2web_news_block
   module:
@@ -11,8 +12,16 @@ targetEntityType: paragraph
 bundle: os2web_news_block
 mode: default
 content:
-  field_os2web_news_details_link:
+  field_os2web_news_block_header:
     weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_os2web_news_details_link:
+    weight: 1
     settings:
       placeholder_url: ''
       placeholder_title: ''
