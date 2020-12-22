@@ -1,14 +1,15 @@
+uuid: f707b534-4880-4aa8-8f21-ae9539ee8985
 langcode: da
 status: true
 dependencies:
   config:
-    - field.storage.node.field_os2web_news_deck
+    - field.storage.node.field_os2web_news_heading
     - node.type.os2web_news
-id: node.os2web_news.field_os2web_news_deck
-field_name: field_os2web_news_deck
+id: node.os2web_news.field_os2web_news_heading
+field_name: field_os2web_news_heading
 entity_type: node
 bundle: os2web_news
-label: Deck
+label: Overskrift
 description: ''
 required: false
 translatable: false

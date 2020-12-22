@@ -1,8 +1,11 @@
+uuid: 378c9eea-46cb-4b61-ac5c-6ea4284b3849
 langcode: da
 status: true
 dependencies:
   module:
     - node
+_core:
+  default_config_hash: XwuM1VbZNaE09Yflp1qlGUjjil46ZZPS7Pldcq8SKSc
 id: node.field_os2web_news_article_author
 field_name: field_os2web_news_article_author
 entity_type: node

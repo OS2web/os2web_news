@@ -1,15 +1,16 @@
+uuid: 8afa0653-f2ee-47d2-bb50-1d094b3b4b37
 langcode: da
 status: true
 dependencies:
   module:
     - node
-    - video_embed_field
-id: node.field_os2web_news_video
-field_name: field_os2web_news_video
+id: node.field_os2web_news_intro
+field_name: field_os2web_news_intro
 entity_type: node
-type: video_embed_field
-settings: {  }
-module: video_embed_field
+type: string_long
+settings:
+  case_sensitive: false
+module: core
 locked: false
 cardinality: 1
 translatable: true

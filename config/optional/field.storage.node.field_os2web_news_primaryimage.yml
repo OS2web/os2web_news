@@ -1,3 +1,4 @@
+uuid: a7572565-8539-4a90-ba94-a1dddc9584d2
 langcode: da
 status: true
 dependencies:
@@ -5,8 +6,8 @@ dependencies:
     - file
     - image
     - node
-id: node.field_os2web_news_image
-field_name: field_os2web_news_image
+id: node.field_os2web_news_primaryimage
+field_name: field_os2web_news_primaryimage
 entity_type: node
 type: image
 settings:

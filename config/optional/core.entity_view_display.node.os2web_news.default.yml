@@ -1,24 +1,26 @@
+uuid: null
 langcode: da
 status: true
 dependencies:
   config:
-    - field.field.node.os2web_news.body
-    - field.field.node.os2web_news.field_os2web_news_accord_title
-    - field.field.node.os2web_news.field_os2web_news_accordion
+    - field.field.node.os2web_news.field_migration_old_url
     - field.field.node.os2web_news.field_os2web_news_article_author
     - field.field.node.os2web_news.field_os2web_news_article_date
-    - field.field.node.os2web_news.field_os2web_news_deck
-    - field.field.node.os2web_news.field_os2web_news_image
-    - field.field.node.os2web_news.field_os2web_news_image_video
+    - field.field.node.os2web_news.field_os2web_news_description
+    - field.field.node.os2web_news.field_os2web_news_heading
+    - field.field.node.os2web_news.field_os2web_news_intro
+    - field.field.node.os2web_news.field_os2web_news_paragraph_bann
+    - field.field.node.os2web_news.field_os2web_news_paragraph_left
+    - field.field.node.os2web_news.field_os2web_news_paragraph_narr
+    - field.field.node.os2web_news.field_os2web_news_paragraph_righ
+    - field.field.node.os2web_news.field_os2web_news_paragraph_wid
+    - field.field.node.os2web_news.field_os2web_news_primaryimage
     - field.field.node.os2web_news.field_os2web_news_section
-    - field.field.node.os2web_news.field_os2web_news_video
     - node.type.os2web_news
   module:
-    - entity_reference_revisions
     - svg_image
     - text
     - user
-    - video_embed_field
 id: node.os2web_news.default
 targetEntityType: node
 bundle: os2web_news
@@ -27,13 +29,26 @@ content:
   body:
     label: hidden
     type: text_default
-    weight: 4
+    weight: 5
     settings: {  }
     third_party_settings: {  }
     region: content
+  field_field_os2web_news_primaryi:
+    weight: 2
+    label: visually_hidden
+    settings:
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
   field_os2web_news_accordion:
     type: entity_reference_revisions_entity_view
-    weight: 6
+    weight: 7
     label: hidden
     settings:
       view_mode: default
@@ -51,14 +66,57 @@ content:
     type: timestamp
     region: content
   field_os2web_news_deck:
+    weight: 6
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_os2web_news_description:
     weight: 5
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_os2web_news_heading:
+    weight: 1
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
   field_os2web_news_image:
-    weight: 1
+    weight: 2
+    label: hidden
+    settings:
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_os2web_news_intro:
+    weight: 4
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_os2web_news_paragraph_nar:
+    type: entity_reference_revisions_entity_view
+    weight: 14
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_os2web_news_primaryimage:
+    weight: 2
     label: hidden
     settings:
       svg_attributes:
@@ -71,7 +129,7 @@ content:
     type: image
     region: content
   field_os2web_news_video:
-    weight: 2
+    weight: 3
     label: hidden
     settings:
       responsive: true
@@ -80,6 +138,13 @@ content:
       autoplay: true
     third_party_settings: {  }
     type: video_embed_field_video
+    region: content
+  field_os2web_page_heading:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
     region: content
   links:
     weight: 0
@@ -91,6 +156,11 @@ hidden:
   field_os2web_news_accord_title: true
   field_os2web_news_article_author: true
   field_os2web_news_image_video: true
+  field_os2web_news_paragraph_bann: true
+  field_os2web_news_paragraph_left: true
+  field_os2web_news_paragraph_narr: true
+  field_os2web_news_paragraph_righ: true
+  field_os2web_news_paragraph_wid: true
   field_os2web_news_section: true
   langcode: true
   search_api_excerpt: true

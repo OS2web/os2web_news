@@ -1,0 +1,21 @@
+uuid: a5cea17a-2e01-474c-a60e-b83b5ea5813f
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_os2web_news_description
+    - node.type.os2web_news
+  module:
+    - text
+id: node.os2web_news.field_os2web_news_description
+field_name: field_os2web_news_description
+entity_type: node
+bundle: os2web_news
+label: Beskrivelse
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

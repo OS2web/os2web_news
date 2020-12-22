@@ -1,9 +1,12 @@
+uuid: 69de1e5e-d364-4b4c-b719-6d1c963780f1
 langcode: da
 status: true
 dependencies:
   module:
     - node
     - taxonomy
+_core:
+  default_config_hash: pGCIJTvqjrHkpULyxV7hZuLOqeQysiQPgpPiTf14HQs
 id: node.field_os2web_news_section
 field_name: field_os2web_news_section
 entity_type: node

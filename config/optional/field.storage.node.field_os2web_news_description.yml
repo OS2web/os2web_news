@@ -1,17 +1,16 @@
+uuid: 8ae2fb1b-1332-496a-b08f-6aab585556a4
 langcode: da
 status: true
 dependencies:
   module:
     - node
-id: node.field_os2web_news_accord_title
-field_name: field_os2web_news_accord_title
+    - text
+id: node.field_os2web_news_description
+field_name: field_os2web_news_description
 entity_type: node
-type: string
-settings:
-  max_length: 255
-  is_ascii: false
-  case_sensitive: false
-module: core
+type: text_long
+settings: {  }
+module: text
 locked: false
 cardinality: 1
 translatable: true

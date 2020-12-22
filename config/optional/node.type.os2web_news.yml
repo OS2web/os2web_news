@@ -1,3 +1,4 @@
+uuid: null
 langcode: da
 status: true
 dependencies:
@@ -12,11 +13,11 @@ third_party_settings:
     expand_fieldset: when_required
     fields_display_mode: vertical_tab
     publish_enable: true
-    publish_past_date: error
+    publish_past_date: publish
     publish_past_date_created: false
     publish_required: false
     publish_revision: true
-    publish_touch: false
+    publish_touch: true
     unpublish_enable: true
     unpublish_required: false
     unpublish_revision: true
@@ -26,4 +27,4 @@ description: ''
 help: ''
 new_revision: true
 preview_mode: 1
-display_submitted: true
+display_submitted: false

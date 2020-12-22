@@ -1,8 +1,11 @@
+uuid: 6fc24904-5e26-45d0-a57d-1f44e7313bf7
 langcode: da
 status: true
 dependencies:
   module:
     - node
+_core:
+  default_config_hash: FJeIHXR_KOZ0zWVrPDoLIh8bilkyP3cL9rU80HVuaZQ
 id: node.field_os2web_news_article_date
 field_name: field_os2web_news_article_date
 entity_type: node

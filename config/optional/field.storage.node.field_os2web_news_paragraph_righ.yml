@@ -1,3 +1,4 @@
+uuid: 7b6d6406-7daa-4ad2-a1f5-504f3c54103c
 langcode: da
 status: true
 dependencies:
@@ -5,8 +6,8 @@ dependencies:
     - entity_reference_revisions
     - node
     - paragraphs
-id: node.field_os2web_news_accordion
-field_name: field_os2web_news_accordion
+id: node.field_os2web_news_paragraph_righ
+field_name: field_os2web_news_paragraph_righ
 entity_type: node
 type: entity_reference_revisions
 settings:

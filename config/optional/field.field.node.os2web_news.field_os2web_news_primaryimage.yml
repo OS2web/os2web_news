@@ -1,23 +1,24 @@
+uuid: 1ad7c91c-f0c4-4d23-a09e-5ea67510714f
 langcode: da
 status: true
 dependencies:
   config:
-    - field.storage.node.field_os2web_news_image
+    - field.storage.node.field_os2web_news_primaryimage
     - node.type.os2web_news
   module:
     - image
-id: node.os2web_news.field_os2web_news_image
-field_name: field_os2web_news_image
+id: node.os2web_news.field_os2web_news_primaryimage
+field_name: field_os2web_news_primaryimage
 entity_type: node
 bundle: os2web_news
-label: 'Newsarticle Image'
+label: Billede
 description: ''
 required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_directory: ''
   file_extensions: 'png gif jpg jpeg'
   max_filesize: ''
   max_resolution: ''
