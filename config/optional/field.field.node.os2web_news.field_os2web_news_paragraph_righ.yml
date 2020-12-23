@@ -4,8 +4,8 @@ dependencies:
   config:
     - field.storage.node.field_os2web_news_paragraph_righ
     - node.type.os2web_news
-    - paragraphs.paragraphs_type.os2web_box_paragraph
-    - paragraphs.paragraphs_type.os2web_simple_text_paragraph
+    - paragraphs.paragraphs_type.os2web_banner_paragraph
+    - paragraphs.paragraphs_type.os2web_wrapper
   module:
     - entity_reference_revisions
 id: node.os2web_news.field_os2web_news_paragraph_righ
@@ -21,10 +21,10 @@ default_value_callback: ''
 settings:
   handler: 'default:paragraph'
   handler_settings:
-    negate: 0
+    negate: 1
     target_bundles:
-      os2web_box_paragraph: os2web_box_paragraph
-      os2web_simple_text_paragraph: os2web_simple_text_paragraph
+      os2web_banner_paragraph: os2web_banner_paragraph
+      os2web_wrapper: os2web_wrapper
     target_bundles_drag_drop:
       os2web_2_columns:
         weight: 20
@@ -39,8 +39,8 @@ settings:
         weight: 23
         enabled: false
       os2web_banner_paragraph:
+        enabled: true
         weight: 24
-        enabled: false
       os2web_borgerdk_article:
         weight: 25
         enabled: false
@@ -51,8 +51,8 @@ settings:
         weight: 27
         enabled: false
       os2web_box_paragraph:
-        enabled: true
         weight: 28
+        enabled: false
       os2web_content_reference:
         weight: 29
         enabled: false
@@ -74,13 +74,22 @@ settings:
       os2web_section_paragraph:
         weight: 35
         enabled: false
+      os2web_iframe:
+        weight: 36
+        enabled: false
       os2web_section_promoted_pages:
         weight: 36
         enabled: false
       os2web_simple_text_paragraph:
-        enabled: true
         weight: 37
+        enabled: false
       os2web_wrapper:
+        enabled: true
         weight: 38
+      os2web_news_block:
+        weight: 39
+        enabled: false
+      os2web_news_page:
+        weight: 40
         enabled: false
 field_type: entity_reference_revisions
