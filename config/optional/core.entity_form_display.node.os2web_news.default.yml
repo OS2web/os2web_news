@@ -1,9 +1,7 @@
-uuid: 11d560ab-f059-4a01-87ce-88ddbfa325ae
 langcode: da
 status: true
 dependencies:
   config:
-    - field.field.node.os2web_news.field_migration_old_url
     - field.field.node.os2web_news.field_os2web_news_article_author
     - field.field.node.os2web_news.field_os2web_news_article_date
     - field.field.node.os2web_news.field_os2web_news_description
@@ -16,13 +14,13 @@ dependencies:
     - field.field.node.os2web_news.field_os2web_news_paragraph_wid
     - field.field.node.os2web_news.field_os2web_news_primaryimage
     - field.field.node.os2web_news.field_os2web_news_section
-    - image.style.thumbnail
+    - image.style.os2web_normal
     - node.type.os2web_news
   module:
     - field_group
+    - image_widget_crop
     - paragraphs
     - path
-    - svg_image
     - text
 third_party_settings:
   field_group:
@@ -32,12 +30,13 @@ third_party_settings:
         - group_media
         - group_afsnit
         - group_sideafsnit
-        - group_settings
+        - group_sidebygger
         - group_referencer
+        - group_settings
       parent_name: ''
       weight: 14
       format_type: tabs
-      region: hidden
+      region: content
       format_settings:
         id: ''
         classes: ''
@@ -50,7 +49,7 @@ third_party_settings:
       parent_name: group_editform
       weight: 22
       format_type: tab
-      region: hidden
+      region: content
       format_settings:
         id: ''
         classes: ''
@@ -68,7 +67,7 @@ third_party_settings:
       parent_name: group_editform
       weight: 21
       format_type: tab
-      region: hidden
+      region: content
       format_settings:
         id: ''
         classes: ''
@@ -78,27 +77,26 @@ third_party_settings:
       label: Standard
     group_afsnit:
       children:
-        - field_os2web_news_paragraph_wid
+        - field_os2web_news_paragraph_narr
       parent_name: group_editform
       weight: 23
       format_type: tab
-      region: hidden
+      region: content
       format_settings:
         description: ''
         formatter: closed
         required_fields: true
         id: ''
         classes: ''
-      label: Sidebygger
+      label: Afsnit
     group_sideafsnit:
       children:
         - field_os2web_news_paragraph_righ
-        - field_os2web_news_paragraph_narr
         - field_os2web_news_paragraph_left
       parent_name: group_editform
       weight: 24
       format_type: tab
-      region: hidden
+      region: content
       format_settings:
         id: ''
         classes: ''
@@ -107,12 +105,11 @@ third_party_settings:
         required_fields: true
       label: Sideafsnit
     group_settings:
-      children:
-        - field_migration_old_url
+      children: {}
       parent_name: group_editform
-      weight: 25
+      weight: 27
       format_type: tab
-      region: hidden
+      region: content
       format_settings:
         id: ''
         classes: ''
@@ -126,7 +123,7 @@ third_party_settings:
       parent_name: group_editform
       weight: 26
       format_type: tab
-      region: hidden
+      region: content
       format_settings:
         id: ''
         classes: ''
@@ -134,8 +131,20 @@ third_party_settings:
         formatter: closed
         required_fields: true
       label: Referencer
-_core:
-  default_config_hash: U03yW0IfoetCQUkjGtEc9eEJ88sSghYWNYbG9DFuCWc
+    group_sidebygger:
+      children:
+        - field_os2web_news_paragraph_wid
+      parent_name: group_editform
+      weight: 25
+      format_type: tab
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        formatter: closed
+        required_fields: true
+      label: Sidebygger
 id: node.os2web_news.default
 targetEntityType: node
 bundle: os2web_news
@@ -143,18 +152,10 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 7
+    weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_migration_old_url:
-    weight: 30
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_os2web_news_article_author:
     weight: 35
     settings:
@@ -194,96 +195,115 @@ content:
     type: string_textarea
     region: content
   field_os2web_news_paragraph_bann:
-    type: entity_reference_paragraphs
+    type: paragraphs
     weight: 29
     settings:
-      title: Paragraph
-      title_plural: Paragraphs
-      edit_mode: open
-      add_mode: dropdown
+      title: Banner
+      title_plural: Bannere
+      edit_mode: closed
+      closed_mode: preview
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: button
       form_display_mode: default
-      default_paragraph_type: ''
+      default_paragraph_type: os2web_banner_paragraph
+      features:
+        collapse_edit_all: collapse_edit_all
+        duplicate: '0'
+        add_above: '0'
     third_party_settings: {  }
     region: content
   field_os2web_news_paragraph_left:
     type: paragraphs
     weight: 38
     settings:
-      title: Paragraph
-      title_plural: Paragraphs
-      edit_mode: open
-      add_mode: dropdown
-      form_display_mode: default
-      default_paragraph_type: ''
-      closed_mode: summary
+      title: Afsnit
+      title_plural: Afsnit
+      edit_mode: closed_expand_nested
+      closed_mode: preview
       autocollapse: none
       closed_mode_threshold: 0
+      add_mode: modal
+      form_display_mode: default
+      default_paragraph_type: _none
       features:
         duplicate: duplicate
         collapse_edit_all: collapse_edit_all
+        add_above: add_above
     third_party_settings: {  }
     region: content
   field_os2web_news_paragraph_narr:
     type: paragraphs
-    weight: 37
+    weight: 40
     settings:
-      title: Paragraph
-      title_plural: Paragraphs
-      edit_mode: open
-      add_mode: dropdown
-      form_display_mode: default
-      default_paragraph_type: ''
-      closed_mode: summary
+      title: Afsnit
+      title_plural: Afsnit
+      edit_mode: closed_expand_nested
+      closed_mode: preview
       autocollapse: none
       closed_mode_threshold: 0
+      add_mode: modal
+      form_display_mode: default
+      default_paragraph_type: _none
       features:
         duplicate: duplicate
         collapse_edit_all: collapse_edit_all
+        add_above: add_above
     third_party_settings: {  }
     region: content
   field_os2web_news_paragraph_righ:
     type: paragraphs
     weight: 36
     settings:
-      title: Paragraph
-      title_plural: Paragraphs
-      edit_mode: open
-      add_mode: dropdown
-      form_display_mode: default
-      default_paragraph_type: ''
-      closed_mode: summary
+      title: Afsnit
+      title_plural: Afsnit
+      edit_mode: closed_expand_nested
+      closed_mode: preview
       autocollapse: none
       closed_mode_threshold: 0
+      add_mode: modal
+      form_display_mode: default
+      default_paragraph_type: _none
       features:
         duplicate: duplicate
         collapse_edit_all: collapse_edit_all
+        add_above: add_above
     third_party_settings: {  }
     region: content
   field_os2web_news_paragraph_wid:
     type: paragraphs
     weight: 39
     settings:
-      title: Paragraph
-      title_plural: Paragraphs
-      edit_mode: open
-      add_mode: dropdown
-      form_display_mode: default
-      default_paragraph_type: ''
-      closed_mode: summary
+      title: Afsnit
+      title_plural: Afsnit
+      edit_mode: closed_expand_nested
+      closed_mode: preview
       autocollapse: none
       closed_mode_threshold: 0
+      add_mode: modal
+      form_display_mode: default
+      default_paragraph_type: _none
       features:
         duplicate: duplicate
         collapse_edit_all: collapse_edit_all
+        add_above: add_above
     third_party_settings: {  }
     region: content
   field_os2web_news_primaryimage:
     weight: 41
     settings:
+      show_default_crop: true
+      warn_multiple_usages: true
+      preview_image_style: os2web_normal
+      crop_preview_image_style: crop_thumbnail
+      crop_list:
+        - os2web_normal
+      crop_types_required:
+        - os2web_normal
       progress_indicator: throbber
-      preview_image_style: thumbnail
+      show_crop_area: false
     third_party_settings: {  }
-    type: image_image
+    type: image_widget_crop
     region: content
   field_os2web_news_section:
     weight: 40
@@ -295,61 +315,60 @@ content:
     third_party_settings: {  }
     type: entity_reference_autocomplete
     region: content
-  moderation_state:
-    type: string_textfield
-    weight: 9
+  langcode:
+    type: language_select
+    weight: 1
     region: content
     settings:
-      size: 60
-      placeholder: ''
+      include_locked: true
     third_party_settings: {  }
   path:
     type: path
-    weight: 10
+    weight: 4
     region: content
     settings: {  }
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
-    weight: 6
+    weight: 11
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   publish_on:
     type: datetime_timestamp
-    weight: 2
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }
   publish_state:
     type: options_select
-    weight: 4
+    weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }
   scheduler_settings:
-    weight: 11
+    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 3
+    weight: 9
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
-    weight: 8
+    weight: 12
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   title:
     type: string_textfield
-    weight: 13
+    weight: 0
     region: content
     settings:
       size: 60
@@ -357,7 +376,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 5
+    weight: 2
     region: content
     settings:
       match_operator: CONTAINS
@@ -367,20 +386,20 @@ content:
     third_party_settings: {  }
   unpublish_on:
     type: datetime_timestamp
-    weight: 1
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }
   unpublish_state:
     type: options_select
-    weight: 0
+    weight: 8
     region: content
     settings: {  }
     third_party_settings: {  }
   url_redirects:
-    weight: 12
+    weight: 13
     region: content
     settings: {  }
     third_party_settings: {  }
 hidden:
-  langcode: true
+  moderation_state: true

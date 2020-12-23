@@ -1,0 +1,17 @@
+langcode: da
+status: true
+dependencies: {  }
+id: os2web_news
+label: 'OS2Web News'
+description: ''
+folder: modules/contrib/os2web_news/config/optional
+module: {  }
+theme: {  }
+blacklist:
+  - 'os2web_news*'
+  - '*os2web_news'
+  - '*os2web_news*'
+graylist: {  }
+graylist_dependents: false
+graylist_skip_equal: false
+weight: 0

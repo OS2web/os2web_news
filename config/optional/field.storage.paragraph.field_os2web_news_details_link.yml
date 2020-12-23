@@ -2,13 +2,14 @@ langcode: da
 status: true
 dependencies:
   module:
-    - node
-id: node.field_os2web_news_article_date
-field_name: field_os2web_news_article_date
-entity_type: node
-type: timestamp
+    - link
+    - paragraphs
+id: paragraph.field_os2web_news_details_link
+field_name: field_os2web_news_details_link
+entity_type: paragraph
+type: link
 settings: {  }
-module: core
+module: link
 locked: false
 cardinality: 1
 translatable: true

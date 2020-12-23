@@ -1,4 +1,3 @@
-uuid: a7eabce3-0006-4663-b2e1-c54e4f5a0f3f
 langcode: da
 status: true
 dependencies:
@@ -6,8 +5,6 @@ dependencies:
     - field.storage.node.field_os2web_news_section
     - node.type.os2web_news
     - taxonomy.vocabulary.os2web_sektion
-_core:
-  default_config_hash: 5ab5nPntUraOtBAsOe3rJLlMV9GhwtNWKgo6tSTMHJ4
 id: node.os2web_news.field_os2web_news_section
 field_name: field_os2web_news_section
 entity_type: node

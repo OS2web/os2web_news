@@ -1,12 +1,9 @@
-uuid: f92540eb-3f68-4819-bede-896ee64718a0
 langcode: da
 status: true
 dependencies:
   config:
     - field.storage.node.field_os2web_news_article_author
     - node.type.os2web_news
-_core:
-  default_config_hash: 9CNMjNXdhn8YacIHNrqTR9XvDd0QTupaVBBVtBHHF7A
 id: node.os2web_news.field_os2web_news_article_author
 field_name: field_os2web_news_article_author
 entity_type: node

@@ -1,11 +1,8 @@
-uuid: 7f84cfa5-b290-46bc-b489-b29ac33f3746
 langcode: da
 status: true
 dependencies:
   config:
     - node.type.os2web_news
-_core:
-  default_config_hash: dwOrET7Zr3_-povGOG5YTfJvjgTXa4sBv9xKwM1I7mY
 id: node.os2web_news.promote
 field_name: promote
 entity_type: node
