@@ -1,6 +1,6 @@
-name: 'OS2Web Events'
+name: 'OS2Web News'
 type: module
-description: 'Events handler.'
+description: 'News handler.'
 package: OS2
 core: 8.x
 core_version_requirement: ^8 || ^9
