@@ -14,3 +14,12 @@ function os2web_news_read_in_new_config($config_name) {
   $active_storage = \Drupal::service('config.storage');
   $active_storage->write($config_name, Yaml::parse(file_get_contents($path . '/config/optional/' . $config_name . '.yml')));
 }
+
+/**
+ * Implements hook_update_N().
+ *
+ * Clears default value for News date.
+ */
+function os2web_news_update_8001($config_name) {
+  os2web_news_read_in_new_config('field.field.node.os2web_news.field_os2web_news_article_date');
+}

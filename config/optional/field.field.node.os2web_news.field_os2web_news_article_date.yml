@@ -12,9 +12,7 @@ label: 'Newsarticle Date'
 description: ''
 required: false
 translatable: false
-default_value:
-  -
-    value: 1607437289
+default_value: {  }
 default_value_callback: ''
 settings: {  }
 field_type: timestamp
