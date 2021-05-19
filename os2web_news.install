@@ -6,6 +6,7 @@
  * Install, uninstall and update hooks for page builder module.
  */
 
+use Drupal\Core\Config\FileStorage;
 use Symfony\Component\Yaml\Yaml;
 
 function os2web_news_read_in_new_config($config_name) {
@@ -22,4 +23,36 @@ function os2web_news_read_in_new_config($config_name) {
  */
 function os2web_news_update_8001($config_name) {
   os2web_news_read_in_new_config('field.field.node.os2web_news.field_os2web_news_article_date');
+}
+
+/**
+ * Adds new field for selecting the news category.
+ */
+function os2web_news_update_8002(&$sandbox) {
+  // Create field storage and field storage.
+  $module_handler = \Drupal::moduleHandler();
+  $config_storage = new FileStorage($module_handler->getModule('os2web_news')->getPath() . '/config/optional');
+
+  foreach (['field.storage.paragraph.field_os2web_news_par_section', 'field.field.paragraph.os2web_news_block.field_os2web_news_par_section', 'field.field.paragraph.os2web_news_page.field_os2web_news_par_section'] as $config_name) {
+    $config_record = $config_storage->read($config_name);
+
+    $entity_type = \Drupal::service('config.manager')->getEntityTypeIdByName($config_name);
+    /** @var \Drupal\Core\Config\Entity\ConfigEntityStorageInterface $storage */
+    $storage = \Drupal::entityTypeManager()->getStorage($entity_type);
+    $entity = $storage->createFromStorageRecord($config_record);
+    $entity->save();
+  }
+
+  // Updating view mode.
+  os2web_news_read_in_new_config('core.entity_view_display.paragraph.os2web_news_block.default', 'os2web_news');
+  // Updating form mode.
+  os2web_news_read_in_new_config('core.entity_form_display.paragraph.os2web_news_block.default', 'os2web_news');
+
+  // Updating view mode.
+  os2web_news_read_in_new_config('core.entity_view_display.paragraph.os2web_news_page.default', 'os2web_news');
+  // Updating form mode.
+  os2web_news_read_in_new_config('core.entity_form_display.paragraph.os2web_news_page.default', 'os2web_news');
+
+  // Updating view.
+  os2web_news_read_in_new_config('views.view.os2web_news', 'os2web_news');
 }

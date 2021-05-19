@@ -4,6 +4,7 @@ dependencies:
   config:
     - field.field.paragraph.os2web_news_block.field_os2web_news_block_header
     - field.field.paragraph.os2web_news_block.field_os2web_news_details_link
+    - field.field.paragraph.os2web_news_block.field_os2web_news_par_section
     - paragraphs.paragraphs_type.os2web_news_block
   module:
     - link
@@ -21,12 +22,22 @@ content:
     type: string_textfield
     region: content
   field_os2web_news_details_link:
-    weight: 1
+    weight: 2
     settings:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings: {  }
     type: link_default
+    region: content
+  field_os2web_news_par_section:
+    weight: 1
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
     region: content
 hidden:
   created: true
