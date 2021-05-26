@@ -7,6 +7,7 @@
  */
 
 use Drupal\Core\Config\FileStorage;
+use Drupal\field\Entity\FieldStorageConfig;
 use Symfony\Component\Yaml\Yaml;
 
 function os2web_news_read_in_new_config($config_name) {
@@ -28,7 +29,7 @@ function os2web_news_update_8001($config_name) {
 /**
  * Adds new field for selecting the news category.
  */
-function os2web_news_update_8002(&$sandbox) {
+function os2web_news_update_8002($config_name) {
   // Create field storage and field storage.
   $module_handler = \Drupal::moduleHandler();
   $config_storage = new FileStorage($module_handler->getModule('os2web_news')->getPath() . '/config/optional');
@@ -55,4 +56,23 @@ function os2web_news_update_8002(&$sandbox) {
 
   // Updating view.
   os2web_news_read_in_new_config('views.view.os2web_news', 'os2web_news');
+}
+
+/**
+ * Making field for selecting the news section multivalue.
+ */
+function os2web_news_update_8003($config_name) {
+  // Updating field storage.
+  $storegeConfig = FieldStorageConfig::loadByName('paragraph', 'field_os2web_news_par_section');
+  $storegeConfig->setCardinality(-1);
+  $storegeConfig->save();
+
+  // Updating form mode.
+  os2web_news_read_in_new_config('core.entity_form_display.paragraph.os2web_news_block.default');
+
+  // Updating form mode.
+  os2web_news_read_in_new_config('core.entity_form_display.paragraph.os2web_news_page.default');
+
+  // Updating view.
+  os2web_news_read_in_new_config('views.view.os2web_news');
 }
