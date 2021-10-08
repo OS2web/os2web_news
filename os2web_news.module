@@ -1,5 +1,8 @@
 <?php
 
+use Drupal\Core\Datetime\DrupalDateTime;
+use Drupal\datetime\Plugin\Field\FieldType\DateTimeItem;
+
 /**
  * Implements hook_preprocess_paragraph().
  *
@@ -47,4 +50,22 @@ function os2web_news_preprocess_paragraph__os2web_news_page(&$variables) {
     $variables['content'][] = views_embed_view('os2web_news', 'os2web_news_embed_page');
   }
 
+}
+
+/**
+ * Callback for getting current time on field value.
+ */
+function os2web_news_get_current_datetime($entity, $definition) {
+  return time();
+}
+
+/**
+ * Implements hook_entity_bundle_field_info_alter().
+ */
+function os2web_news_entity_bundle_field_info_alter(&$fields, \Drupal\Core\Entity\EntityTypeInterface $entity_type, $bundle) {
+  if ($entity_type->id() == 'node' && $bundle == 'os2web_news' && !empty($fields['field_os2web_news_article_date'])) {
+    // Set default value callback.
+    $fields['field_os2web_news_article_date']
+      ->setDefaultValueCallback('os2web_news_get_current_datetime');
+  }
 }
