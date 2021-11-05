@@ -56,7 +56,15 @@ function os2web_news_preprocess_paragraph__os2web_news_page(&$variables) {
  * Callback for getting current time on field value.
  */
 function os2web_news_get_current_datetime($entity, $definition) {
-  return time();
+  if ($definition->getType() == 'timestamp') {
+    return time();
+  }
+  elseif ($definition->getType() == 'datetime') {
+    return [
+      'default_date_type' => 'relative',
+      'default_date' => 'now'
+    ];
+  }
 }
 
 /**

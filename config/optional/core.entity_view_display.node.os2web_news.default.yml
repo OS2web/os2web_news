@@ -17,6 +17,7 @@ dependencies:
     - image.style.os2web_normal
     - node.type.os2web_news
   module:
+    - datetime
     - entity_reference_revisions
     - svg_image
     - text
@@ -55,15 +56,22 @@ content:
       link: ''
     third_party_settings: {  }
     region: content
+  field_os2web_news_article_author:
+    type: string
+    weight: 3
+    region: content
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
   field_os2web_news_article_date:
     weight: 2
     label: hidden
     settings:
-      date_format: os2core_date_medium
-      custom_date_format: ''
-      timezone: ''
+      timezone_override: ''
+      format_type: os2core_date_medium
     third_party_settings: {  }
-    type: timestamp
+    type: datetime_default
     region: content
   field_os2web_news_deck:
     weight: 6
@@ -73,14 +81,14 @@ content:
     type: basic_string
     region: content
   field_os2web_news_description:
-    weight: 5
+    weight: 6
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: text_default
     region: content
   field_os2web_news_heading:
-    weight: 3
+    weight: 4
     label: hidden
     settings: {  }
     third_party_settings: {  }
@@ -100,7 +108,7 @@ content:
     type: image
     region: content
   field_os2web_news_intro:
-    weight: 4
+    weight: 5
     label: hidden
     settings: {  }
     third_party_settings: {  }
@@ -117,7 +125,7 @@ content:
     region: content
   field_os2web_news_paragraph_narr:
     type: entity_reference_revisions_entity_view
-    weight: 6
+    weight: 7
     region: content
     label: hidden
     settings:
@@ -162,7 +170,6 @@ content:
     third_party_settings: {  }
 hidden:
   field_os2web_news_accord_title: true
-  field_os2web_news_article_author: true
   field_os2web_news_image_video: true
   field_os2web_news_paragraph_bann: true
   field_os2web_news_paragraph_left: true

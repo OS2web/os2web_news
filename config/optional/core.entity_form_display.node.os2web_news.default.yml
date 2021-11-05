@@ -18,6 +18,7 @@ dependencies:
     - node.type.os2web_news
   module:
     - content_moderation
+    - datetime
     - field_group
     - image_widget_crop
     - paragraphs
@@ -171,7 +172,7 @@ content:
     weight: 34
     settings: {  }
     third_party_settings: {  }
-    type: datetime_timestamp
+    type: datetime_default
     region: content
   field_os2web_news_description:
     weight: 33

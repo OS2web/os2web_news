@@ -1,9 +1,0 @@
-langcode: da
-status: true
-dependencies:
-  module:
-    - node
-id: node.list
-label: List
-targetEntityType: node
-cache: true

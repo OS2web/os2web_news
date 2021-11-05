@@ -4,14 +4,14 @@ dependencies: {  }
 id: os2web_news
 label: 'OS2Web News'
 description: ''
+weight: 0
+storage: folder
 folder: modules/contrib/os2web_news/config/optional
-module: {  }
+module:
+  os2web_news: 0
 theme: {  }
-blacklist:
+complete_list:
   - 'os2web_news*'
   - '*os2web_news'
   - '*os2web_news*'
-graylist: {  }
-graylist_dependents: false
-graylist_skip_equal: false
-weight: 0
+partial_list: {  }
