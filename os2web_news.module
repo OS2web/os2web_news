@@ -2,6 +2,7 @@
 
 use Drupal\Core\Datetime\DrupalDateTime;
 use Drupal\datetime\Plugin\Field\FieldType\DateTimeItem;
+use Drupal\node\NodeInterface;
 
 /**
  * Implements hook_preprocess_paragraph().
@@ -75,5 +76,19 @@ function os2web_news_entity_bundle_field_info_alter(&$fields, \Drupal\Core\Entit
     // Set default value callback.
     $fields['field_os2web_news_article_date']
       ->setDefaultValueCallback('os2web_news_get_current_datetime');
+  }
+}
+
+/**
+ * Implements hook_entity_presave().
+ *
+ * On a new node save copies header from title if header value is empty.
+ */
+function os2web_news_node_presave(NodeInterface $node) {
+  if ($node->isNew() && $node->getType() == 'os2web_news') {
+    // If header is empty, use the title.
+    if (empty($node->field_os2web_news_heading->value)) {
+      $node->field_os2web_news_heading->value = $node->label();
+    }
   }
 }
