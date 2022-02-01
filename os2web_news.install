@@ -76,3 +76,10 @@ function os2web_news_update_8003($config_name) {
   // Updating view.
   os2web_news_read_in_new_config('views.view.os2web_news');
 }
+/**
+ *
+ * Making field for selecting the news section multivalue.
+ */
+function os2web_news_update_8004() {
+  os2web_news_read_in_new_config('field.storage.node.field_os2web_news_section');
+}
