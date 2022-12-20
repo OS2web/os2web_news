@@ -1,0 +1,12 @@
+.block-os2web-news-notification-block .messages.messages--info {
+  background-color: #d9edf7;
+  background-position: 10px;
+  background-repeat: no-repeat;
+  color: #31708f;
+  background-image: url(../icons/info.svg);
+  border-color: #0074bd #0074bd #0074bd transparent;
+  box-shadow: -8px 0 0 #0074bd;
+  margin-bottom: 28px;
+}
+
+

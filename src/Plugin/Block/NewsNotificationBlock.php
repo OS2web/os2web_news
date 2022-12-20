@@ -70,9 +70,14 @@ class NewsNotificationBlock extends BlockBase
     if ((int)$news_article_date[0]['value'] <= strtotime($config['date_offset'])) {
       return [
         '#markup' => '<div data-drupal-messages="">
-            <div role="contentinfo" class="messages messages--warning">'
+            <div role="contentinfo" class="messages messages--info">'
           . $config['notification_text'] . "</div></div>",
         '#cache' => ['max-age' => 0],
+        '#attached' => [
+          'library' => [
+            'os2web_news/info-messages'
+          ]
+        ]
       ];
     } else {
       return [
