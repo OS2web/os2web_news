@@ -1,3 +1,4 @@
+uuid: 701e9ddb-c303-4848-9db4-0864788700bd
 langcode: da
 status: true
 dependencies:
@@ -17,9 +18,12 @@ third_party_settings:
     publish_required: false
     publish_revision: true
     publish_touch: true
+    show_message_after_update: true
     unpublish_enable: true
     unpublish_required: false
     unpublish_revision: true
+_core:
+  default_config_hash: txRGx4mln2oS320QMGf7oOm-uUL8GfWet1KoexZ6ZuM
 name: Nyheder
 type: os2web_news
 description: ''
