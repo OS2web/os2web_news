@@ -16,12 +16,6 @@ file_put_contents('/var/www/debug.log', "install " . __METHOD__ . "\n", FILE_APP
 
 }
 
-function os2web_news_installed() {
-  file_put_contents('/var/www/debug.log', "install " . __METHOD__ . "\n", FILE_APPEND);
-
-}
-
-
 function os2web_news_uninstall() {
 file_put_contents('/var/www/debug.log', "install " . __METHOD__ . "\n", FILE_APPEND);
 
