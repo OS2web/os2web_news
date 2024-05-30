@@ -5,6 +5,27 @@ use Drupal\datetime\Plugin\Field\FieldType\DateTimeItem;
 use Drupal\node\NodeInterface;
 use Drupal\Core\Form\FormStateInterface;
 
+
+function os2web_news_install() {
+  file_put_contents('/var/www/debug.log', "module " . __METHOD__ . "\n", FILE_APPEND);
+
+}
+
+function os2web_news_installed() {
+  file_put_contents('/var/www/debug.log', "module . " . __METHOD__ . "\n", FILE_APPEND);
+
+}
+
+
+function os2web_news_uninstall() {
+  file_put_contents('/var/www/debug.log', "module " . __METHOD__ . "\n", FILE_APPEND);
+
+
+}
+
+
+
+
 /**
  * Implements hook_preprocess_paragraph().
  *

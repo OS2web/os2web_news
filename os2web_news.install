@@ -10,6 +10,25 @@ use Drupal\Core\Config\FileStorage;
 use Drupal\field\Entity\FieldStorageConfig;
 use Symfony\Component\Yaml\Yaml;
 
+
+function os2web_news_install() {
+file_put_contents('/var/www/debug.log', "install " . __METHOD__ . "\n", FILE_APPEND);
+
+}
+
+function os2web_news_installed() {
+  file_put_contents('/var/www/debug.log', "install " . __METHOD__ . "\n", FILE_APPEND);
+
+}
+
+
+function os2web_news_uninstall() {
+file_put_contents('/var/www/debug.log', "install " . __METHOD__ . "\n", FILE_APPEND);
+
+
+}
+
+
 function os2web_news_read_in_new_config($config_name) {
   $path = drupal_get_path('module', 'os2web_news');
   /** @var \Drupal\Core\Config\StorageInterface $active_storage */
