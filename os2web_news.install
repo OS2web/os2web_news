@@ -10,15 +10,56 @@ use Drupal\Core\Config\FileStorage;
 use Drupal\field\Entity\FieldStorageConfig;
 use Symfony\Component\Yaml\Yaml;
 
-
 function os2web_news_install() {
-file_put_contents('/var/www/debug.log', "install " . __METHOD__ . "\n", FILE_APPEND);
 
+  if (\Drupal::moduleHandler()->moduleExists('os2web_pagebuilder')) {
+
+    $role_object = Role::load('editor');
+    if ($role_object) {
+
+      $permissions = array_keys(\Drupal::service('user.permissions')->getPermissions());
+
+      if (in_array('os2web_page access instillinger tab', $permissions)) {
+        $role_object->grantPermission('os2web_page access instillinger tab');
+      }
+      if (in_array('os2web_page access media tab', $permissions)) {
+        $role_object->grantPermission('os2web_page access media tab');
+      }
+      if (in_array('os2web_page access sideafsnit tab', $permissions)) {
+        $role_object->grantPermission('os2web_page access sideafsnit tab');
+      }
+      if (in_array('os2web_page access sidebygger tab', $permissions)) {
+        $role_object->grantPermission('os2web_page access sidebygger tab');
+      }
+
+      $role_object->save();
+    }
+  }
 }
 
 function os2web_news_uninstall() {
-file_put_contents('/var/www/debug.log', "install " . __METHOD__ . "\n", FILE_APPEND);
 
+  if (\Drupal::moduleHandler()->moduleExists('os2web_pagebuilder')) {
+
+    $role_object = Role::load('editor');
+    if ($role_object) {
+
+      if ($role_object->hasPermission('os2web_page access instillinger tab')) {
+        $role_object->revokePermission('os2web_page access instillinger tab');
+      }
+      if ($role_object->hasPermission('os2web_page access media tab')) {
+        $role_object->revokePermission('os2web_page access media tab');
+      }
+      if ($role_object->hasPermission('os2web_page access sideafsnit tab')) {
+        $role_object->revokePermission('os2web_page access sideafsnit tab');
+      }
+      if ($role_object->hasPermission('os2web_page access sidebygger tab')) {
+        $role_object->revokePermission('os2web_page access sidebygger tab');
+      }
+
+      $role_object->save();
+    }
+  }
 
 }
 
